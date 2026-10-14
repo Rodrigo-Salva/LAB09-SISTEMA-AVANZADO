@@ -1,0 +1,26 @@
+@model List<Alumno>
+@{
+    ViewData["Title"] = "Alumnos matriculados";
+}
+
+<h2>Alumnos matriculados</h2>
+<p><a asp-action="Create" class="btn btn-primary">Nueva matrícula</a></p>
+
+<table class="table">
+    <thead>
+        <tr><th>Id</th><th>Nombres</th><th>Correo</th><th>Carrera</th><th>Turno</th><th>Becado</th></tr>
+    </thead>
+    <tbody>
+    @foreach (var a in Model)
+    {
+        <tr>
+            <td>@a.Id</td>
+            <td>@a.Nombres</td>
+            <td>@a.Correo</td>
+            <td>@a.Carrera</td>
+            <td>@a.Turno</td>
+            <td>@(a.Becado ? "Sí" : "No")</td>
+        </tr>
+    }
+    </tbody>
+</table>

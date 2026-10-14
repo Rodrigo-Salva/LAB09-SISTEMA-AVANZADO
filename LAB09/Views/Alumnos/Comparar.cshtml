@@ -1,0 +1,19 @@
+@model Alumno
+@{
+    ViewData["Title"] = "Comparar helpers";
+}
+
+<div class="card-form">
+<h2>Html.TextBox vs Html.TextBoxFor</h2>
+<p>Abrir F12 → Inspeccionar cada campo y comparar los atributos <code>id</code>, <code>name</code> y <code>value</code>.</p>
+
+<div class="mb-3">
+    <label>Estándar: Html.TextBox("Nombres")</label>
+    @Html.TextBox("Nombres", "Juan Perez", new { @class = "form-control" })
+</div>
+
+<div class="mb-3">
+    <label>Fuertemente tipado: Html.TextBoxFor(m => m.Nombres)</label>
+    @Html.TextBoxFor(m => m.Nombres, new { @class = "form-control" })
+</div>
+</div>

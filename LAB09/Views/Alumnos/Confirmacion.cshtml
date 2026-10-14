@@ -1,0 +1,34 @@
+@model Alumno
+@{
+    ViewData["Title"] = "Matrícula registrada";
+}
+
+<div class="card-form">
+<h2>¡Matrícula registrada!</h2>
+
+<dl class="row">
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Id)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(m => m.Id)</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Nombres)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(m => m.Nombres)</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Correo)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(m => m.Correo)</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Carrera)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(m => m.Carrera)</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Turno)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(m => m.Turno)</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Becado)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(m => m.Becado)</dd>
+
+    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Observaciones)</dt>
+    <dd class="col-sm-9">@Html.DisplayFor(m => m.Observaciones)</dd>
+</dl>
+
+<a asp-action="Create" class="btn btn-primary">Registrar otro</a>
+<a asp-action="Index" class="btn btn-secondary">Ver lista</a>
+</div>

@@ -1,0 +1,59 @@
+@model Alumno
+@{
+    ViewData["Title"] = "Matrícula de alumno";
+}
+
+<div class="card-form">
+<h2>Matrícula de alumno</h2>
+
+@using (Html.BeginForm("Create", "Alumnos", FormMethod.Post))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(m => m.Id)
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Nombres, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Nombres, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Nombres, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Correo, new { @class = "form-label" })
+        @Html.TextBoxFor(m => m.Correo, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Correo, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Clave, new { @class = "form-label" })
+        @Html.PasswordFor(m => m.Clave, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Clave, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Carrera, new { @class = "form-label" })
+        @Html.DropDownListFor(m => m.Carrera, (SelectList)ViewBag.Carreras, "-- Seleccione --", new { @class = "form-select" })
+        @Html.ValidationMessageFor(m => m.Carrera, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Turno, new { @class = "form-label d-block" })
+        <label>@Html.RadioButtonFor(m => m.Turno, "Mañana") Mañana</label>
+        <label class="ms-3">@Html.RadioButtonFor(m => m.Turno, "Tarde") Tarde</label>
+        <label class="ms-3">@Html.RadioButtonFor(m => m.Turno, "Noche") Noche</label>
+        @Html.ValidationMessageFor(m => m.Turno, "", new { @class = "text-danger d-block" })
+    </div>
+
+    <div class="mb-3 form-check">
+        @Html.CheckBoxFor(m => m.Becado, new { @class = "form-check-input" })
+        @Html.LabelFor(m => m.Becado, new { @class = "form-check-label" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(m => m.Observaciones, new { @class = "form-label" })
+        @Html.TextAreaFor(m => m.Observaciones, 4, 40, new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+}
+</div>
